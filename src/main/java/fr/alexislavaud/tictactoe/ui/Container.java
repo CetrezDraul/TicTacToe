@@ -38,17 +38,17 @@ public class Container extends UiComponent {
             UiComponent component = childs.get(i);
 
             GL11.glPushMatrix();
-            GL11.glTranslatef(component.position.x, component.position.y, 0.0f);
+            GL11.glTranslatef(component.position.getX(), component.position.getY(), 0.0f);
 
             component.render();
             GL11.glPopMatrix();
 
             GL11.glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
             GL11.glBegin(GL11.GL_LINE_LOOP);
-            GL11.glVertex2f(component.position.x, component.position.y);
-            GL11.glVertex2f(component.position.x + component.size.x, component.position.y);
-            GL11.glVertex2f(component.position.x + component.size.x, component.position.y + component.size.y);
-            GL11.glVertex2f(component.position.x, component.position.y + component.size.y);
+            GL11.glVertex2f(component.position.getX(), component.position.getY());
+            GL11.glVertex2f(component.position.getX() + component.size.getX(), component.position.getY());
+            GL11.glVertex2f(component.position.getX() + component.size.getX(), component.position.getY() + component.size.getY());
+            GL11.glVertex2f(component.position.getX(), component.position.getY() + component.size.getY());
             GL11.glEnd();
             GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
         }
@@ -90,12 +90,12 @@ public class Container extends UiComponent {
 
             if (isMouseInComponent(x, y, component))
             {
-                component.onMouseMove(x - component.position.x, y - component.position.y);
+                component.onMouseMove(x - component.position.getX(), y - component.position.getY());
                 break;
             }
         }
 
-        UiComponent previousHighlightedComponent = getComponentAt(previousMousePosition.x, previousMousePosition.y);
+        UiComponent previousHighlightedComponent = getComponentAt(previousMousePosition.getX(), previousMousePosition.getY());
         UiComponent currentHighlightedComponent = getComponentAt(x, y);
 
         if (previousHighlightedComponent != null && previousHighlightedComponent != currentHighlightedComponent) {
@@ -107,7 +107,7 @@ public class Container extends UiComponent {
         }
 
         if (focusedComponent != null && isAnyMouseButtonDown()) {
-            focusedComponent.onMouseMove(x - focusedComponent.position.x, y - focusedComponent.position.y);
+            focusedComponent.onMouseMove(x - focusedComponent.position.getX(), y - focusedComponent.position.getY());
         }
 
         previousMousePosition.set(x, y);
@@ -130,7 +130,7 @@ public class Container extends UiComponent {
         mouseButtons[button] = true;
 
         if (highlightedComponent != null) {
-            highlightedComponent.onMouseButtonDown(x - highlightedComponent.position.x, y - highlightedComponent.position.y, button);
+            highlightedComponent.onMouseButtonDown(x - highlightedComponent.position.getY(), y - highlightedComponent.position.getY(), button);
             focusedComponent = highlightedComponent;
         }
         else {
@@ -143,7 +143,7 @@ public class Container extends UiComponent {
         mouseButtons[button] = false;
 
         if (focusedComponent != null) {
-            focusedComponent.onMouseButtonUp(x - focusedComponent.position.x, y - focusedComponent.position.y, button);
+            focusedComponent.onMouseButtonUp(x - focusedComponent.position.getX(), y - focusedComponent.position.getY(), button);
         }
     }
 
@@ -151,8 +151,8 @@ public class Container extends UiComponent {
         Vector2f position = component.position;
         Vector2f size = component.getSize();
 
-        if (x > position.x && x <= position.x + size.x &&
-                y > position.y && y <= position.y + size.y) {
+        if (x > position.getX() && x <= position.getX() + size.getX() &&
+                y > position.getY() && y <= position.getY() + size.getY()) {
 
             return true;
         }

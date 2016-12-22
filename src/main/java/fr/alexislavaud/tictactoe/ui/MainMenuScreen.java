@@ -15,14 +15,14 @@ public final class MainMenuScreen extends Screen {
     public void update(float tpf) {
         super.update(tpf);
 
-        gameTitle.centerX(rootContainer.getSize().x);
-        gameTitle.getPosition().y = 10.0f;
+        gameTitle.centerX(rootContainer.getSize().getX());
+        gameTitle.getPosition().setY(10.0f);
 
-        playButton.centerX(rootContainer.getSize().x);
-        playButton.getPosition().y = rootContainer.getSize().y / 2.0f - playButton.getSize().y;
+        playButton.centerX(rootContainer.getSize().getX());
+        playButton.getPosition().setY(rootContainer.getSize().getY() / 2.0f - playButton.getSize().getY());
 
-        quitButton.centerX(rootContainer.getSize().x);
-        quitButton.getPosition().y = rootContainer.getSize().y / 2.0f + 10.0f;
+        quitButton.centerX(rootContainer.getSize().getX());
+        quitButton.getPosition().setY(rootContainer.getSize().getY() / 2.0f + 10.0f);
     }
 
     @Override

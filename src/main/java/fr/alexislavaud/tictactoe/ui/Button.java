@@ -42,15 +42,15 @@ public final class Button extends UiComponent {
         GL11.glBegin(GL11.GL_QUADS);
         GL11.glColor3f(1.0f, 0.47f, 0.0f);
         GL11.glVertex2f(0.0f, 0.0f);
-        GL11.glVertex2f(size.x, 0.0f);
-        GL11.glVertex2f(size.x, size.y - bottomMarginPx);
-        GL11.glVertex2f(0.0f, size.y - bottomMarginPx);
+        GL11.glVertex2f(size.getX(), 0.0f);
+        GL11.glVertex2f(size.getX(), size.getY() - bottomMarginPx);
+        GL11.glVertex2f(0.0f, size.getY() - bottomMarginPx);
 
         GL11.glColor3f(0.91f, 0.25f, 0.05f);
-        GL11.glVertex2f(0.0f, size.y - bottomMarginPx);
-        GL11.glVertex2f(size.x, size.y - bottomMarginPx);
-        GL11.glVertex2f(size.x, size.y);
-        GL11.glVertex2f(0.0f, size.y);
+        GL11.glVertex2f(0.0f, size.getY() - bottomMarginPx);
+        GL11.glVertex2f(size.getX(), size.getY() - bottomMarginPx);
+        GL11.glVertex2f(size.getX(), size.getY());
+        GL11.glVertex2f(0.0f, size.getY());
         GL11.glEnd();
 
         GL11.glColor3f(0.0f, 0.0f, 0.0f);
@@ -58,7 +58,7 @@ public final class Button extends UiComponent {
         updateFontCache();
 
         GL11.glPushMatrix();
-        GL11.glTranslatef((size.x - fontSize.x * 2.0f) / 2.0f, (size.y - bottomMarginPx - fontSize.y) / 2.0f, 0.0f);
+        GL11.glTranslatef((size.getX() - fontSize.getX() * 2.0f) / 2.0f, (size.getY() - bottomMarginPx - fontSize.getY()) / 2.0f, 0.0f);
         GL11.glScalef(2.0f, 2.0f, 1.0f);
 
         GL11.glEnableClientState(GL11.GL_VERTEX_ARRAY);
@@ -76,8 +76,8 @@ public final class Button extends UiComponent {
             fontCache = BufferUtils.createByteBuffer(text.length() * 512);
             textQuads = STBEasyFont.stb_easy_font_print(0.0f, 0.0f, text, null, fontCache);
 
-            fontSize.x = STBEasyFont.stb_easy_font_width(text);
-            fontSize.y = STBEasyFont.stb_easy_font_height(text);
+            fontSize.setX(STBEasyFont.stb_easy_font_width(text));
+            fontSize.setY(STBEasyFont.stb_easy_font_height(text));
 
             cachedText = text;
         }

@@ -24,10 +24,11 @@ public final class ModePanel extends UiComponent {
         super.render();
 
         GL11.glPushMatrix();
-        GL11.glTranslatef(size.x / 2.0f, size.y / 2.0f, 0.0f);
+        GL11.glTranslatef(size.getX() / 2.0f, size.getY() / 2.0f, 0.0f);
         GL11.glScalef(1.0f + scale, 1.0f + scale, 0.0f);
 
-        final float halfSizeX = size.x / 2.0f, halfSizeY = size.y / 2.0f;
+        final float halfSizeX = size.getX() / 2.0f;
+        final float halfSizeY = size.getY() / 2.0f;
 
         GL11.glRectf(-halfSizeX, -halfSizeY, halfSizeX, halfSizeY);
 

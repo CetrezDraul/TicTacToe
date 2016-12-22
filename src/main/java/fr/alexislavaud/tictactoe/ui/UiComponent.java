@@ -17,7 +17,7 @@ public abstract class UiComponent {
     }
 
     public void centerX(float width) {
-        position.x = (width - size.x) / 2.0f;
+        position.setX((width - size.getX()) / 2.0f);
     }
 
     public Vector2f getPosition() {

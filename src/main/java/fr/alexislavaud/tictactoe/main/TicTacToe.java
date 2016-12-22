@@ -53,11 +53,11 @@ public final class TicTacToe {
         if (currentScreen != null) {
             switch (action) {
                 case GLFW.GLFW_PRESS:
-                    currentScreen.onMouseButtonDown(mousePosition.x, mousePosition.y, button);
+                    currentScreen.onMouseButtonDown(mousePosition.getX(), mousePosition.getY(), button);
                     break;
 
                 case GLFW.GLFW_RELEASE:
-                    currentScreen.onMouseButtonUp(mousePosition.x, mousePosition.y, button);
+                    currentScreen.onMouseButtonUp(mousePosition.getX(), mousePosition.getY(), button);
                     break;
 
                 default:

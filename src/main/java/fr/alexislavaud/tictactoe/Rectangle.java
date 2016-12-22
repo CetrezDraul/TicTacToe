@@ -6,7 +6,10 @@ import org.w3c.dom.css.Rect;
  * Created by Alexis Lavaud on 22/12/2016.
  */
 public final class Rectangle {
-    public float x, y, width, height;
+    private float x;
+    private float y;
+    private float width;
+    private float height;
 
     public Rectangle() {
         this(0.0f, 0.0f, 0.0f, 0.0f);
@@ -24,10 +27,42 @@ public final class Rectangle {
     }
 
     public boolean isInside(Vector2f v) {
-        if (v.x > x && v.x <= x + width && v.y > y && v.y <= y + height) {
+        if (v.getX() > x && v.getX() <= x + width && v.getY() > y && v.getY() <= y + height) {
             return true;
         }
 
         return false;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public void setWidth(float width) {
+        this.width = width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
     }
 }

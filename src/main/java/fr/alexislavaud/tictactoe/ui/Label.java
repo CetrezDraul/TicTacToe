@@ -38,7 +38,7 @@ public final class Label extends UiComponent {
     }
 
     public void fitSizeToFontSize() {
-        size.set(fontSize.x * scale, fontSize.y * scale);
+        size.set(fontSize.getX() * scale, fontSize.getY() * scale);
     }
 
     @Override
@@ -77,8 +77,8 @@ public final class Label extends UiComponent {
     }
 
     private void recalculateFontSize() {
-        fontSize.x = STBEasyFont.stb_easy_font_width(text);
-        fontSize.y = STBEasyFont.stb_easy_font_height(text);
+        fontSize.setX(STBEasyFont.stb_easy_font_width(text));
+        fontSize.setY(STBEasyFont.stb_easy_font_height(text));
     }
 
     public String getText() {

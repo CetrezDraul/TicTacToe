@@ -22,18 +22,18 @@ public final class SelectModeScreen extends Screen {
     public void update(float tpf) {
         super.update(tpf);
 
-        selectModeLabel.centerX(rootContainer.getSize().x);
-        selectModeLabel.getPosition().y = 10.0f;
+        selectModeLabel.centerX(rootContainer.getSize().getX());
+        selectModeLabel.getPosition().setY(10.0f);
 
-        final float panelSize = rootContainer.getSize().x / 2.0f - (10.0f * 3.0f);
+        final float panelSize = rootContainer.getSize().getX() / 2.0f - (10.0f * 3.0f);
         final float margin = 20.0f;
         final float panelStartY = 100.0f;
-        final float panelStopY = rootContainer.getSize().y - panelStartY - margin;
+        final float panelStopY = rootContainer.getSize().getY() - panelStartY - margin;
 
         aiModePanel.getPosition().set(margin, panelStartY);
         aiModePanel.getSize().set(panelSize, panelStopY);
 
-        versusModePanel.getPosition().set(rootContainer.getSize().x - panelSize - margin, panelStartY);
+        versusModePanel.getPosition().set(rootContainer.getSize().getX() - panelSize - margin, panelStartY);
         versusModePanel.getSize().set(panelSize, panelStopY);
 
         backButton.getPosition().set(5.0f, 5.0f);
