@@ -42,8 +42,8 @@ public final class SelectModeScreen extends Screen {
     @Override
     public void init() {
         this.selectModeLabel = new Label("Select mode", 4.0f);
-        this.aiModePanel = new ModePanel();
-        this.versusModePanel = new ModePanel();
+        this.aiModePanel = new ModePanel("With computer");
+        this.versusModePanel = new ModePanel("With friend");
         this.backButton = new Button("Back");
 
         backButton.setButtonCallback(() -> TicTacToe.getInstance().setNextScreen(new MainMenuScreen()));
